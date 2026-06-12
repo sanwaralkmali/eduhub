@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { RibbonCorner } from "@/components/ui/Ribbon";
 import { IconArrowRight, IconFlag, IconTag, IconCap } from "@/components/ui/icons";
 import { enquiryHref } from "@/lib/enquiries/links";
+import { getCoverImage } from "@/lib/catalogue/galleries";
 import { cn } from "@/lib/utils";
 import type { CatalogueItem } from "@/lib/catalogue/types";
 
@@ -38,6 +39,7 @@ export function ProductCard({
   const Icon = CATEGORY_ICON[item.categorySlug] ?? IconFlag;
   const detailHref = `/services/${item.categorySlug}/${item.slug}`;
   const enquireLink = enquiryHref({ item: item.slug, category: item.categorySlug });
+  const cover = getCoverImage(item.slug, item.imageUrl);
 
   return (
     <article className="relative flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm transition hover:shadow-md active:scale-[0.99]">
@@ -48,9 +50,9 @@ export function ProductCard({
         className="group block overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
-          {item.imageUrl ? (
+          {cover ? (
             <Image
-              src={item.imageUrl}
+              src={cover}
               alt={item.name}
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "@/lib/i18n/useTranslation";
 import type { EnquiryRow, EnquiryStatus } from "@/lib/admin/types";
+import { updateEnquiryStatus } from "./actions";
 
 const STATUS_STYLES: Record<EnquiryStatus, string> = {
   new: "bg-primary/10 text-primary",
@@ -10,13 +11,24 @@ const STATUS_STYLES: Record<EnquiryStatus, string> = {
   closed: "bg-secondary text-muted-foreground",
 };
 
+// State-change actions, keyed by target status. For each enquiry we show the
+// actions whose target isn't its current status (so always two, with clear verbs).
+const STATUS_ACTIONS: Array<{ target: EnquiryStatus; key: string }> = [
+  { target: "contacted", key: "markContacted" },
+  { target: "closed", key: "markClosed" },
+  { target: "new", key: "reopen" },
+];
+
 export function EnquiriesView({ enquiries }: { enquiries: EnquiryRow[] }) {
   const t = useTranslation("admin");
+  const [items, setItems] = useState(enquiries);
   const [filter, setFilter] = useState<EnquiryStatus | "all">("all");
+  const [pendingId, setPendingId] = useState<string | null>(null);
+  const [errorId, setErrorId] = useState<string | null>(null);
 
   const filtered = useMemo(
-    () => (filter === "all" ? enquiries : enquiries.filter((e) => e.status === filter)),
-    [enquiries, filter],
+    () => (filter === "all" ? items : items.filter((e) => e.status === filter)),
+    [items, filter],
   );
 
   const filters: Array<{ value: EnquiryStatus | "all"; label: string }> = [
@@ -27,6 +39,21 @@ export function EnquiriesView({ enquiries }: { enquiries: EnquiryRow[] }) {
   ];
 
   const formatDate = (iso: string) => new Date(iso).toLocaleDateString();
+
+  // Optimistic: flip the badge immediately, persist via the server action, and
+  // revert + surface an error if it fails (so the UI never lies about the DB).
+  async function changeStatus(id: string, status: EnquiryStatus) {
+    const previous = items;
+    setErrorId(null);
+    setItems((list) => list.map((e) => (e.id === id ? { ...e, status } : e)));
+    setPendingId(id);
+    const res = await updateEnquiryStatus(id, status);
+    setPendingId(null);
+    if (!res.ok) {
+      setItems(previous);
+      setErrorId(id);
+    }
+  }
 
   return (
     <div>
@@ -84,18 +111,38 @@ export function EnquiriesView({ enquiries }: { enquiries: EnquiryRow[] }) {
 
               <p className="mt-3 whitespace-pre-wrap text-sm text-foreground/90">{e.message}</p>
 
-              <div className="mt-3 flex flex-wrap items-center gap-3 text-xs">
+              <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-border pt-3">
                 {e.category_slug && (
-                  <span className="rounded bg-secondary px-2 py-0.5 text-muted-foreground">
+                  <span className="rounded bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
                     {e.category_slug}
                   </span>
                 )}
                 <a
                   href={`mailto:${e.email}?subject=${encodeURIComponent(t("enquiries.replySubject"))}`}
-                  className="font-medium text-primary hover:underline"
+                  className="text-xs font-medium text-primary hover:underline"
                 >
                   {t("enquiries.reply")}
                 </a>
+
+                <div className="ms-auto flex flex-wrap items-center gap-1.5">
+                  {STATUS_ACTIONS.filter((a) => a.target !== e.status).map((a) => (
+                    <button
+                      key={a.target}
+                      type="button"
+                      onClick={() => changeStatus(e.id, a.target)}
+                      disabled={pendingId === e.id}
+                      className="rounded-full border border-border px-3 py-1 text-xs font-medium text-foreground transition-colors hover:bg-secondary disabled:opacity-50"
+                    >
+                      {t(`enquiries.actions.${a.key}`)}
+                    </button>
+                  ))}
+                </div>
+
+                {errorId === e.id && (
+                  <span role="alert" className="w-full text-xs text-destructive">
+                    {t("enquiries.updateError")}
+                  </span>
+                )}
               </div>
             </li>
           ))}

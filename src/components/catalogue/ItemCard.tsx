@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { IconArrowRight, IconFlag, IconTag, IconCap } from "@/components/ui/icons";
+import { getCoverImage } from "@/lib/catalogue/galleries";
 import type { CatalogueItem } from "@/lib/catalogue/types";
 
 const CATEGORY_ICON: Record<string, typeof IconFlag> = {
@@ -20,6 +21,7 @@ export function ItemCard({
   viewLabel: string;
 }) {
   const Icon = CATEGORY_ICON[item.categorySlug] ?? IconFlag;
+  const cover = getCoverImage(item.slug, item.imageUrl);
 
   return (
     <Link
@@ -28,9 +30,9 @@ export function ItemCard({
     >
       <article className="flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-sm transition-shadow group-hover:shadow-md group-focus-visible:ring-2 group-focus-visible:ring-ring">
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
-          {item.imageUrl ? (
+          {cover ? (
             <Image
-              src={item.imageUrl}
+              src={cover}
               alt={item.name}
               fill
               sizes="(min-width: 768px) 33vw, 100vw"

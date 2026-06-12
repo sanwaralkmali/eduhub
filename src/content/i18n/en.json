@@ -140,7 +140,8 @@
     "errorTitle": "Something went wrong",
     "errorText": "We couldn't load the catalogue. Please try again.",
     "retry": "Try again",
-    "loading": "Loading"
+    "loading": "Loading",
+    "galleryImageAlt": "{name} — photo {n}"
   },
   "products": {
     "metaTitle": "Products & Services",
@@ -265,7 +266,13 @@
       "empty": "No enquiries yet.",
       "filterAll": "All",
       "reply": "Reply",
-      "replySubject": "Re: your Eduhub enquiry"
+      "replySubject": "Re: your Eduhub enquiry",
+      "updateError": "Couldn't update the status. Please try again.",
+      "actions": {
+        "markContacted": "Mark contacted",
+        "markClosed": "Close",
+        "reopen": "Reopen"
+      }
     },
     "catalogue": {
       "title": "Catalogue",

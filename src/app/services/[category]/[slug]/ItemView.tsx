@@ -2,11 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/components/catalogue/Breadcrumbs";
+import { ImageGallery } from "@/components/catalogue/ImageGallery";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { RibbonCorner } from "@/components/ui/Ribbon";
 import { IconArrowRight, IconCheck, IconFlag, IconTag, IconCap } from "@/components/ui/icons";
 import { enquiryHref } from "@/lib/enquiries/links";
+import { getGalleryImages } from "@/lib/catalogue/galleries";
 import { cn } from "@/lib/utils";
 import type { CatalogueItem, ServiceCategory } from "@/lib/catalogue/types";
 
@@ -28,6 +30,7 @@ export async function ItemView({
 
   const Icon = CATEGORY_ICON[item.categorySlug] ?? IconFlag;
   const enquiryLink = enquiryHref({ item: item.slug, category: item.categorySlug });
+  const gallery = getGalleryImages(item.slug);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
@@ -41,22 +44,26 @@ export async function ItemView({
       />
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border bg-secondary">
-          <RibbonCorner />
-          {item.imageUrl ? (
-            <Image
-              src={item.imageUrl}
-              alt={item.name}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-          ) : (
-            <span className="absolute inset-0 grid place-items-center text-primary/40">
-              <Icon className="h-20 w-20" />
-            </span>
-          )}
-        </div>
+        {gallery.length > 0 ? (
+          <ImageGallery images={gallery} name={item.name} />
+        ) : (
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border bg-secondary">
+            <RibbonCorner />
+            {item.imageUrl ? (
+              <Image
+                src={item.imageUrl}
+                alt={item.name}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            ) : (
+              <span className="absolute inset-0 grid place-items-center text-primary/40">
+                <Icon className="h-20 w-20" />
+              </span>
+            )}
+          </div>
+        )}
 
         <div className="flex flex-col">
           {item.isFeatured && (

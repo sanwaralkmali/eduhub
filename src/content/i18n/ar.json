@@ -140,7 +140,8 @@
     "errorTitle": "حدث خطأ ما",
     "errorText": "تعذّر تحميل الكتالوج. حاول مرة أخرى.",
     "retry": "حاول مرة أخرى",
-    "loading": "جارٍ التحميل"
+    "loading": "جارٍ التحميل",
+    "galleryImageAlt": "{name} — صورة {n}"
   },
   "products": {
     "metaTitle": "المنتجات والخدمات",
@@ -265,7 +266,13 @@
       "empty": "لا توجد استفسارات بعد.",
       "filterAll": "الكل",
       "reply": "ردّ",
-      "replySubject": "ردًّا على استفسارك في Eduhub"
+      "replySubject": "ردًّا على استفسارك في Eduhub",
+      "updateError": "تعذّر تحديث الحالة. حاول مرة أخرى.",
+      "actions": {
+        "markContacted": "تم التواصل",
+        "markClosed": "إغلاق",
+        "reopen": "إعادة فتح"
+      }
     },
     "catalogue": {
       "title": "الكتالوج",
