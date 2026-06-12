@@ -108,7 +108,10 @@ export function ContactView({ context }: { context: ContactContext | null }) {
       </header>
 
       {done ? (
-        <div className="mt-10 flex flex-col items-center gap-4 rounded-2xl border bg-secondary/40 p-10 text-center">
+        <div
+          role="status"
+          className="mt-10 flex flex-col items-center gap-4 rounded-2xl border bg-secondary/40 p-10 text-center"
+        >
           <span className="grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground">
             <IconCheck className="h-6 w-6" />
           </span>
@@ -141,9 +144,15 @@ export function ContactView({ context }: { context: ContactContext | null }) {
                 placeholder={t("namePlaceholder")}
                 className={FIELD}
                 autoComplete="name"
-                aria-invalid={Boolean(errors.name)}
+                aria-required="true"
+                aria-invalid={errors.name ? "true" : undefined}
+                aria-describedby={errors.name ? "name-error" : undefined}
               />
-              {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+              {errors.name && (
+                <p id="name-error" role="alert" className="mt-1 text-xs text-destructive">
+                  {errors.name}
+                </p>
+              )}
             </div>
 
             <div>
@@ -174,9 +183,15 @@ export function ContactView({ context }: { context: ContactContext | null }) {
                 placeholder={t("emailPlaceholder")}
                 className={FIELD}
                 autoComplete="email"
-                aria-invalid={Boolean(errors.email)}
+                aria-required="true"
+                aria-invalid={errors.email ? "true" : undefined}
+                aria-describedby={errors.email ? "email-error" : undefined}
               />
-              {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+              {errors.email && (
+                <p id="email-error" role="alert" className="mt-1 text-xs text-destructive">
+                  {errors.email}
+                </p>
+              )}
             </div>
 
             <div>
@@ -209,9 +224,15 @@ export function ContactView({ context }: { context: ContactContext | null }) {
               onChange={(e) => set("message", e.target.value)}
               placeholder={t("messagePlaceholder")}
               className={FIELD}
-              aria-invalid={Boolean(errors.message)}
+              aria-required="true"
+              aria-invalid={errors.message ? "true" : undefined}
+              aria-describedby={errors.message ? "message-error" : undefined}
             />
-            {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+            {errors.message && (
+              <p id="message-error" role="alert" className="mt-1 text-xs text-destructive">
+                {errors.message}
+              </p>
+            )}
           </div>
 
           <input

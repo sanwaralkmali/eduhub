@@ -11,7 +11,9 @@
     "services": "Services",
     "why": "Why us",
     "contact": "Contact",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "primaryNav": "Main navigation",
+    "bottomNav": "Bottom navigation"
   },
   "hero": {
     "badge": "For schools, end to end",

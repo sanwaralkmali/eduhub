@@ -61,6 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // Locale + messages come from src/i18n/request.ts (driven by the EDU_LOCALE cookie).
   const locale = (await getLocale()) as Locale;
   const messages = await getMessages();
+  const tc = await getTranslations("common");
   const dir = isRtl(locale) ? "rtl" : "ltr";
   const pathname = headers().get("x-pathname") ?? "";
   const isAdmin = pathname.startsWith("/admin");
@@ -77,9 +78,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             children
           ) : (
             <div className="flex min-h-screen flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+              >
+                {tc("skipToContent")}
+              </a>
               <StructuredData />
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main id="main-content" className="flex-1">
+                {children}
+              </main>
               <Footer />
               <MobileTabBar />
             </div>

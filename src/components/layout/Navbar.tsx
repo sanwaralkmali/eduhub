@@ -25,7 +25,10 @@ export function Navbar() {
       className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur"
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <nav
+        aria-label={t("primaryNav")}
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6"
+      >
         <Link
           href="/"
           className="flex items-center gap-2.5 font-display text-xl font-semibold text-brand-navy"

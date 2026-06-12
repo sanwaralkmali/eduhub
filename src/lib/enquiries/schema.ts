@@ -13,6 +13,8 @@ export const enquiryInputSchema = z.object({
   message: z.string().trim().min(10).max(2000),
   itemId: z.string().uuid().optional(),
   categorySlug: z.string().trim().max(80).optional(),
+  /** Honeypot — must be empty; a filled value flags a bot (enforced in the route). */
+  company: z.string().max(200).optional(),
 });
 
 export type EnquiryInput = z.infer<typeof enquiryInputSchema>;
