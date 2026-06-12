@@ -1,0 +1,318 @@
+{
+  "common": {
+    "brand": "Eduhub",
+    "menu": "Menu",
+    "close": "Close",
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "services": "Services",
+    "why": "Why us",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "badge": "For schools, end to end",
+    "title": "Every school event, beautifully handled",
+    "subtitle": "From competitions and trips to uniforms, gifts, and graduation — Eduhub plans, supplies, and runs it. In Arabic and English.",
+    "ctaPrimary": "Explore products",
+    "ctaSecondary": "Talk to us"
+  },
+  "services": {
+    "title": "Three ways we help your school",
+    "subtitle": "One partner for the whole school year.",
+    "cta": "See details",
+    "allProductsCta": "Browse all products",
+    "items": {
+      "activities": {
+        "title": "Activities",
+        "description": "Competitions, indoor and outdoor trips, and school events your students will remember.",
+        "points": ["School competitions", "Indoor trips & activities", "Outdoor trips & events"]
+      },
+      "schoolServices": {
+        "title": "School Services",
+        "description": "Uniforms, teacher-day gifts, and event merchandise — sourced, branded, and delivered.",
+        "points": ["School uniforms", "Teacher-day gifts", "Event merchandise"]
+      },
+      "graduation": {
+        "title": "Graduation",
+        "description": "Gowns, ceremony packages, and full coordination for a graduation day that runs itself.",
+        "points": ["Graduation gowns", "Ceremony packages", "Grad coordination"]
+      }
+    }
+  },
+  "why": {
+    "title": "Why schools choose Eduhub",
+    "subtitle": "Organised like a great school event — colourful, structured, and warm.",
+    "items": [
+      { "title": "Truly bilingual", "text": "Every service, document, and conversation works in Arabic and English." },
+      { "title": "Built for schools", "text": "We speak the school calendar — terms, events, and graduation, planned around your year." },
+      { "title": "End to end", "text": "One partner from first idea to final delivery. No juggling five suppliers." },
+      { "title": "Celebration-ready", "text": "We make the big days feel big, with the small details handled." }
+    ]
+  },
+  "founder": {
+    "heading": "A word from our team",
+    "quote": "At Eduhub, we treat every competition, order, and graduation as if it were our own — because for your students, it's a day they'll remember. One team handles it end to end, in Arabic and English, so your staff never have to chase five suppliers. Our commitment is simple, and we put it in writing: a fair price, delivered on time, to a standard you'll be proud of, with a real person who answers within one business day.",
+    "name": "The Eduhub Team",
+    "role": "School Services · Istanbul"
+  },
+  "cta": {
+    "title": "Planning a competition, an order, or a graduation?",
+    "subtitle": "Tell us what your school needs. We'll put together a plan and a quote.",
+    "button": "Email the team",
+    "email": "eduhub.contact26@gmail.com",
+    "note": "We usually reply within one business day."
+  },
+  "footer": {
+    "tagline": "School events made simple — Activities, School Services, and Graduation.",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "contactTitle": "Contact",
+    "links": {
+      "activities": "Activities",
+      "schoolServices": "School Services",
+      "graduation": "Graduation",
+      "why": "Why Eduhub",
+      "contact": "Contact us"
+    },
+    "rights": "All rights reserved."
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Tell us what your school needs and we'll reply with a plan and a quote.",
+    "name": "Your name",
+    "namePlaceholder": "e.g. Layla Hassan",
+    "school": "School name",
+    "schoolPlaceholder": "e.g. Al-Noor International School",
+    "email": "Email",
+    "emailPlaceholder": "you@school.edu",
+    "phone": "Phone",
+    "phonePlaceholder": "+90 5XX XXX XX XX",
+    "message": "How can we help?",
+    "messagePlaceholder": "Tell us about your event, order, or graduation.",
+    "optional": "optional",
+    "submit": "Send enquiry",
+    "submitting": "Sending…",
+    "successTitle": "Thank you!",
+    "successText": "Your enquiry is in. We usually reply within one business day.",
+    "contextNote": "About: {item}",
+    "itemPrefill": "Hi, I'd like to know more about {item}.",
+    "topicContextNote": "About: {topic}",
+    "topicPrefill": "Hi, I'd like to talk about {topic}.",
+    "topics": {
+      "quote": "pricing and a quote",
+      "general": "your services",
+      "graduation": "graduation services",
+      "activities": "school activities",
+      "schoolServices": "school services"
+    },
+    "emailNote": "Prefer email? Write to us at",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "message": "Please add a little more detail (at least 10 characters).",
+      "server": "Sorry, something went wrong. Please try again or email us."
+    }
+  },
+  "catalogue": {
+    "indexTitle": "Our services",
+    "indexSubtitle": "Browse everything Eduhub offers your school.",
+    "browse": "Browse",
+    "viewItem": "View details",
+    "allServices": "All services",
+    "optionsCount": "{count} options",
+    "featured": "Featured",
+    "whatsIncluded": "What's included",
+    "enquire": "Enquire about this",
+    "enquireSubject": "Enquiry about {item}",
+    "backToCategory": "Back to {category}",
+    "moreInCategory": "More in {category}",
+    "notFoundTitle": "We couldn't find that",
+    "notFoundText": "This service may have moved or is no longer listed.",
+    "errorTitle": "Something went wrong",
+    "errorText": "We couldn't load the catalogue. Please try again.",
+    "retry": "Try again",
+    "loading": "Loading"
+  },
+  "products": {
+    "metaTitle": "Products & Services",
+    "metaDescription": "Browse Eduhub's school packages across Activities, School Services, and Graduation — and request a quote in one tap.",
+    "heroBadge": "For schools — planned, supplied, delivered",
+    "heroTitle": "Everything your school needs, beautifully delivered",
+    "heroSubtitle": "Activities, school services, and graduation from one trusted partner — in Arabic and English. Browse our packages and request a quote in a tap.",
+    "heroCtaPrimary": "Browse products",
+    "heroCtaSecondary": "Request a quote",
+    "featured": "Featured",
+    "requestQuote": "Request a quote",
+    "enquire": "Enquire now",
+    "viewDetails": "View details",
+    "featuredTitle": "Featured this season",
+    "featuredSubtitle": "A few of the packages schools ask for most — every one can be tailored to you.",
+    "allTitle": "Everything we offer",
+    "allSubtitle": "Browse by area. Tell us what you need and we'll shape a package and a quote."
+  },
+  "trust": {
+    "assurances": [
+      { "title": "Arabic & English", "text": "Every document and conversation, bilingual." },
+      { "title": "Clear quotes", "text": "Transparent pricing, no surprises." },
+      { "title": "End to end", "text": "One partner, from first idea to delivery." },
+      { "title": "Fast, human replies", "text": "A real person answers within one business day." }
+    ],
+    "delivered": {
+      "title": "What we've delivered",
+      "subtitle": "Real events we've planned and run — the proof behind our promises.",
+      "items": [
+        { "title": "Outdoor camps & activities", "value": "3 delivered", "note": "Planned, equipped, and supervised end to end." },
+        { "title": "Graduation ceremony", "value": "Fully run", "note": "Gowns and celebration, from setup to send-off." }
+      ]
+    },
+    "logos": {
+      "title": "Be one of our first partner schools",
+      "subtitle": "We're choosing a small group of schools to work with closely — your name could sit here.",
+      "cta": "Become a partner school",
+      "placeholder": "Your school"
+    },
+    "how": {
+      "title": "How it works",
+      "subtitle": "Three simple steps — from first message to a day that runs itself.",
+      "steps": [
+        { "title": "Enquire", "text": "Tell us what your school needs in one short message." },
+        { "title": "Plan & quote", "text": "We reply within one business day with a clear plan and a quote." },
+        { "title": "Delivered", "text": "We supply, set up, and run it — you enjoy the day." }
+      ]
+    },
+    "guarantees": {
+      "title": "Our promise to your school",
+      "subtitle": "Four commitments behind every quote.",
+      "items": [
+        { "title": "On time", "text": "We agree your dates in writing and meet them — uniforms, gowns, and setup arrive exactly when promised." },
+        { "title": "High quality", "text": "Every item and every event is checked to a standard you'll be proud to put in front of students and parents." },
+        { "title": "Fair price", "text": "Clear, honest pricing with no hidden extras — a quote you can build a budget around." },
+        { "title": "Reply within one business day", "text": "Send an enquiry and a real person gets back to you within one business day." }
+      ]
+    },
+    "faq": {
+      "title": "Questions schools ask us",
+      "subtitle": "Straight answers before you enquire.",
+      "items": [
+        { "q": "How much does it cost?", "a": "Every package is priced to your school's size, dates, and choices, so you only pay for what you need. Tell us the essentials and we'll send clear, itemised pricing — with no obligation." },
+        { "q": "How far ahead should we book?", "a": "For graduations and large events, four to six weeks gives us room to do it properly; uniforms, gifts, and smaller activities can move faster. Tell us your date and we'll confirm what's comfortable." },
+        { "q": "Is there a minimum order?", "a": "It depends on the item — uniforms and gowns have practical minimums, while events are sized to your group. Share your numbers and we'll tell you exactly what works." },
+        { "q": "How do we pay?", "a": "We invoice your school directly and agree clear payment terms in the quote before anything begins — no surprises later." },
+        { "q": "What happens on the day of the event?", "a": "Our team is on-site to set up, run, and pack down, so your staff can focus on your students and enjoy the day." },
+        { "q": "Which schools and areas do you serve?", "a": "We're based in Istanbul and work with international and private schools across the city, in both Arabic and English. Not sure if we cover you? Just ask." }
+      ]
+    },
+    "channels": {
+      "title": "Talk to a real person",
+      "subtitle": "Reach us whichever way suits you — we reply within one business day.",
+      "phoneLabel": "Call us",
+      "phone": "+90 552 471 86 00",
+      "whatsappLabel": "WhatsApp",
+      "whatsapp": "+90 552 471 86 00",
+      "emailLabel": "Email",
+      "note": "Based in Istanbul. We usually reply within one business day."
+    },
+    "finalCta": {
+      "title": "Ready to plan your next school event?",
+      "subtitle": "Send one message. We'll reply with a plan and a quote — usually within a business day.",
+      "button": "Request a quote",
+      "note": "No obligation. No pressure. Just a clear plan for your school."
+    }
+  },
+  "admin": {
+    "title": "Eduhub Admin",
+    "demoBadge": "Demo",
+    "viewSite": "View site",
+    "signOut": "Sign out",
+    "nav": {
+      "dashboard": "Dashboard",
+      "enquiries": "Enquiries",
+      "catalogue": "Catalogue"
+    },
+    "login": {
+      "title": "Admin sign in",
+      "subtitle": "We'll email you a secure sign-in link.",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "submit": "Send magic link",
+      "sending": "Sending…",
+      "sentTitle": "Check your email",
+      "sentText": "If that address is an admin, a sign-in link is on its way.",
+      "error": "Could not send the link. Please try again.",
+      "demoTitle": "Demo mode",
+      "demoText": "Supabase isn't configured, so the admin is open for preview with sample data.",
+      "demoButton": "Open the demo admin"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "newEnquiries": "New enquiries",
+      "totalEnquiries": "Total enquiries",
+      "catalogueItems": "Catalogue items",
+      "viewEnquiries": "View enquiries"
+    },
+    "enquiries": {
+      "title": "Enquiries",
+      "subtitle": "School submissions from the contact form.",
+      "empty": "No enquiries yet.",
+      "filterAll": "All",
+      "reply": "Reply",
+      "replySubject": "Re: your Eduhub enquiry"
+    },
+    "catalogue": {
+      "title": "Catalogue",
+      "subtitle": "Add, edit, and remove the items shown on the public site.",
+      "new": "New item",
+      "newTitle": "New item",
+      "editTitle": "Edit item",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleting": "Deleting…",
+      "deleteFailed": "Failed",
+      "deleteConfirm": "Delete “{name}”? This cannot be undone.",
+      "demoNotice": "Demo mode — connect Supabase to add or edit items.",
+      "featured": "Featured",
+      "inactive": "Hidden",
+      "empty": "No items yet.",
+      "save": "Save item",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "saveError": "Could not save. Please try again.",
+      "fields": {
+        "category": "Category",
+        "slug": "Slug",
+        "slugError": "Lowercase letters, numbers, and hyphens only.",
+        "slugTaken": "That slug is already used in this category.",
+        "nameEn": "Name (English)",
+        "nameAr": "Name (Arabic)",
+        "summaryEn": "Summary (English)",
+        "summaryAr": "Summary (Arabic)",
+        "descriptionEn": "Description (English)",
+        "descriptionAr": "Description (Arabic)",
+        "featuresEn": "Features (English)",
+        "featuresAr": "Features (Arabic)",
+        "featuresHint": "One per line.",
+        "priceLabelEn": "Price label (English)",
+        "priceLabelAr": "Price label (Arabic)",
+        "imageUrl": "Image URL",
+        "urlError": "Enter a valid URL.",
+        "featured": "Featured",
+        "active": "Visible on site",
+        "sortOrder": "Sort order",
+        "required": "Required."
+      }
+    },
+    "status": {
+      "new": "New",
+      "contacted": "Contacted",
+      "closed": "Closed"
+    }
+  },
+  "meta": {
+    "title": "Eduhub — school events, handled",
+    "description": "Activities, school services, and graduation for schools — bilingual, end to end."
+  }
+}

@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* "The Scholar" palette (BRAND.md) — institutional Harbor Navy + Eduhub Blue,
+       warm Paper background, brass used only as a small accent. */
+    --background: 48 33% 95%; /* Paper #F7F5EF */
+    --foreground: 208 32% 16%; /* Ink #1C2A36 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 208 32% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 208 32% 16%;
+
+    --primary: 214 69% 33%; /* Eduhub Blue #1A4D8F */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 207 63% 92%; /* Mist #DCEBF7 */
+    --secondary-foreground: 212 64% 22%; /* Harbor Navy #14355A */
+
+    --muted: 207 45% 93%;
+    --muted-foreground: 208 13% 42%; /* Slate #5C6B78 */
+
+    --accent: 39 65% 55%; /* Brass #D9A441 — accent only */
+    --accent-foreground: 208 32% 16%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 43 25% 89%; /* warm hairline #EAE6DC */
+    --input: 43 25% 89%;
+    --ring: 214 69% 33%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 212 50% 11%;
+    --foreground: 207 30% 92%;
+
+    --card: 212 44% 15%;
+    --card-foreground: 207 30% 92%;
+
+    --popover: 212 44% 15%;
+    --popover-foreground: 207 30% 92%;
+
+    --primary: 206 62% 55%; /* Sky — readable on navy */
+    --primary-foreground: 212 50% 11%;
+
+    --secondary: 212 34% 22%;
+    --secondary-foreground: 207 30% 92%;
+
+    --muted: 212 30% 22%;
+    --muted-foreground: 207 18% 70%;
+
+    --accent: 39 65% 58%;
+    --accent-foreground: 212 50% 11%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 212 30% 24%;
+    --input: 212 30% 26%;
+    --ring: 206 62% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    /* App-like: keep type stable on rotate, light-only controls, smooth anchors. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Kill the mobile tap-flash and rubber-band so it reads as a native app. */
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+}
+
+/* Restrained scroll-in reveal (BRAND.md micro-interactions). CSS-only via
+   scroll-driven animations: degrades to fully-visible where unsupported, is
+   disabled under prefers-reduced-motion, and never shifts layout (opacity +
+   transform only). Apply the `reveal` class to a section/grid. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
