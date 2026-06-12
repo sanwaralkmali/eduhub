@@ -26,11 +26,13 @@
 **Needs from owner:** confirm the Supabase project is the right one; access to its SQL editor.
 **Done when:** an enquiry submitted on the live form is visible in the admin inbox, and an item edited in admin shows on the public site.
 
+> **Status 2026-06-12:** Audited **code-ready, zero blockers** — a 6-auditor sweep (migrations, RLS, Supabase client, data layer, enquiry flow, admin CRUD) plus a dedicated SQL↔TS schema-drift check found no mismatch; `lint` + `build` + `i18n:check` all green. Remaining work is owner-side in the Supabase dashboard: run the 5 migrations in order, then ⚠️ **allowlist `https://eduhub-sable-zeta.vercel.app/admin/auth/callback`** (and `http://localhost:3000/admin/auth/callback` for local) under Auth → URL Configuration — `src/app/admin/login/actions.ts:22` sends the magic link there, and if it isn't allowlisted admin login silently fails. (A full 10-step go-live runbook was produced this session.)
+
 ## Phase 6 — Real brand assets & catalogue content
 **Goal:** replace remaining placeholders with real assets/content.
 - [ ] **PWA icons:** export proper `192×192`, `512×512`, and a **maskable** icon (with safe-zone padding so Android's circular mask doesn't clip the crest ring); add an iOS apple-touch-icon + optional splash. Update `src/app/manifest.ts` and `layout.tsx` `icons`. (Currently the 2048px crest is scaled for all sizes.)
 - [ ] **Product photos:** upload real photos to the Supabase Storage `catalogue` bucket; set `image_url` on items (cards/detail already use `next/image`). Until then, flat Mist placeholders show.
-- [ ] **Real catalogue:** replace the 9 seed packages with real packages and descriptions across the three pillars (via the admin UI from Phase 5, or by editing the seed). **Pricing: keep "Request a quote" on every item** — set all `price_label_en`/`price_label_ar` to "Request a quote" / "اطلب عرض سعر" and remove the placeholder amounts (`From SAR 45 / student`, `From SAR 30 / gown`), which are also the wrong currency for Istanbul.
+- [ ] **Real catalogue:** replace the 9 seed packages with real packages and descriptions across the three pillars (via the admin UI from Phase 5, or by editing the seed). **Pricing: keep "Request a quote" on every item.** ✅ *2026-06-12:* the 2 leftover SAR placeholder amounts (`From SAR 45 / student`, `From SAR 30 / gown`) were corrected to "Request a quote" / "اطلب عرض سعر" in **both** `db/migrations/..._1040_seed_catalogue.sql` and `src/lib/catalogue/seed.ts`, so all 9 items are now quote-only. Real package content/descriptions still to come.
 - [ ] Review founder's-promise wording (`founder.*` in i18n) and guarantee/FAQ copy with the owner.
 **Needs from owner:** real photos, final logo icon exports, real package list + pricing, sign-off on copy.
 
@@ -46,21 +48,23 @@
 
 ## Phase 8 — SEO, performance, accessibility & legal (CLAUDE.md §8 Phase 4 finish)
 **Goal:** discoverable, fast, accessible, and compliant. (OG image + mobile are already done.)
-- [ ] Per-page metadata for `/products`, `/services`, category & item pages; `sitemap.ts` + `robots.ts`; canonical URLs.
-- [ ] **Structured data:** `Organization` + `LocalBusiness` JSON-LD (Istanbul, contact, sameAs) for trust + local SEO.
-- [ ] Performance/Lighthouse pass: image sizing, font loading, no layout shift; target 90+ mobile.
-- [ ] Accessibility audit: focus order, labels, contrast (brass for fills not small text), the FAQ `<details>`, the bottom tab bar; full RTL/AR QA at 375px.
-- [ ] **Privacy policy + terms** pages (Türkiye **KVKK** / GDPR — you collect names/emails via the form); link them from the footer ("policy links").
-**Needs from owner:** company legal details for the privacy policy; confirm service area copy.
+- [x] **Metadata + canonical** for home, `/products`, `/services`, category & item, `/contact`; **`sitemap.ts`** (static + data-driven catalogue) + **`robots.ts`** (blocks `/admin`,`/api`). *(2026-06-12)*
+- [x] **Structured data:** `Organization` + `LocalBusiness` JSON-LD (Istanbul/Türkiye, real contact, bilingual) site-wide on public pages — `src/components/seo/StructuredData.tsx`, mounted in `layout.tsx`. No `sameAs` yet (no social profiles to claim — add when they exist). *(2026-06-12)*
+- [x] **Privacy + terms** pages — `/privacy` + `/terms`, bilingual (KVKK/GDPR-aware), linked from the footer; new `legal` i18n namespace (en/ar parity, 324 keys). Single SEO source at `src/lib/site/config.ts`. *(2026-06-12)*
+- [ ] Performance/Lighthouse pass: image sizing, font loading, no layout shift; target 90+ mobile. *(still to do)*
+- [ ] Accessibility audit: focus order, labels, contrast (brass for fills not small text), the FAQ `<details>`, the bottom tab bar; full RTL/AR QA at 375px. *(still to do — the new legal pages + footer policy nav passed an adversarial review this session)*
+**Needs from owner:** company legal details for the privacy policy (**full legal entity name + registered address** — the policy currently points readers to email for these); confirm service area copy.
 
 ## Phase 9 — Deploy & launch
 **Goal:** live on the real domain.
 - [ ] **Git:** the project is not a git repo yet — `git init`, first commit (the work so far), push to GitHub. (Never commit `.env.local`; it's git-ignored.)
-- [ ] **Vercel:** import the repo; set env vars in Vercel (NOT from `.env.local`): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `ADMIN_EMAILS=mtnshsalah@gmail.com,eduhub.contact26@gmail.com`, `RESEND_API_KEY`, `NEXT_PUBLIC_SITE_URL=https://<project>.vercel.app`.
-- [ ] **Domain: temp for now** — launch on the Vercel-provided URL (`https://<project>.vercel.app`); set `NEXT_PUBLIC_SITE_URL` and the Supabase Auth redirect URL (for magic links) to it. Add a custom domain later.
+- [ ] **Vercel:** import the repo; set env vars in Vercel (NOT from `.env.local`): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `ADMIN_EMAILS=mtnshsalah@gmail.com,eduhub.contact26@gmail.com`, `RESEND_API_KEY`, `NEXT_PUBLIC_SITE_URL=https://eduhub-sable-zeta.vercel.app`.
+- [ ] **Domain: temp for now** — launch on the Vercel-provided URL (`https://eduhub-sable-zeta.vercel.app`); set `NEXT_PUBLIC_SITE_URL` and the Supabase Auth redirect URL (for magic links) to it. Add a custom domain later.
 - [ ] Production smoke: both languages, mobile **install to home screen**, enquiry end-to-end (lands in inbox + notifies), admin login with both emails.
 - [ ] **Analytics:** add conversion tracking (Vercel Analytics or Plausible) — primary metric = enquiries submitted.
-**Needs from owner:** the domain, and access to point DNS / Vercel.
+**Needs from owner:** access to the Vercel + Supabase dashboards (domain is locked to the temp Vercel URL).
+
+> **Status 2026-06-12:** Site is **deployed and live** at **https://eduhub-sable-zeta.vercel.app**. Code now defaults `NEXT_PUBLIC_SITE_URL` to this URL (`src/lib/site/config.ts`, `src/app/layout.tsx`) so canonical/OG/sitemap/JSON-LD stay correct even if the Vercel env var is unset; a redeploy ships that default. **Still to confirm:** (1) set `NEXT_PUBLIC_SITE_URL=https://eduhub-sable-zeta.vercel.app` in Vercel → Settings → Environment Variables, then redeploy; (2) Supabase → Auth → URL Configuration — set **Site URL** to the prod URL and add Redirect URL **https://eduhub-sable-zeta.vercel.app/admin/auth/callback** (else admin magic-link login fails in production); (3) production smoke test — both languages, enquiry round-trip into the inbox, admin login with both emails.
 
 ## Phase 10 — Post-launch growth (ongoing)
 - [ ] Collect **real** testimonials/reviews as events are delivered; add a genuine reviews section (structure is ready — was removed in the honesty pivot, easy to re-add with real quotes).

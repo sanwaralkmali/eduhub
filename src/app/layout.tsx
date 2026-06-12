@@ -7,6 +7,7 @@ import { isRtl, type Locale } from "@/lib/i18n/config";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileTabBar } from "@/components/layout/MobileTabBar";
+import { StructuredData } from "@/components/seo/StructuredData";
 import "./globals.css";
 
 // Navy themed status bar + cover the safe areas so the app fills notched screens.
@@ -36,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = t("title");
   const description = t("description");
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://eduhub-sable-zeta.vercel.app"),
     title: { default: title, template: "%s · Eduhub" },
     description,
     applicationName: "Eduhub",
@@ -76,6 +77,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             children
           ) : (
             <div className="flex min-h-screen flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
+              <StructuredData />
               <Navbar />
               <main className="flex-1">{children}</main>
               <Footer />

@@ -81,8 +81,18 @@ export async function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-5 text-xs text-brand-paper/60 sm:px-6">
-          © {year} {tc("brand")}. {t("rights")}
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-xs text-brand-paper/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <p>
+            © {year} {tc("brand")}. {t("rights")}
+          </p>
+          <nav aria-label={t("legalNavLabel")} className="flex gap-4">
+            <Link href="/privacy" className="transition-colors hover:text-accent">
+              {t("links.privacy")}
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-accent">
+              {t("links.terms")}
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

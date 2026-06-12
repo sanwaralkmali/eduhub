@@ -57,7 +57,7 @@ values
    'من القياس إلى التوصيل: أزياء متينة بشعار مدرستك، بكل المقاسات، مع إعادة التزويد عند الحاجة.',
    array['On-site sizing', 'School crest branding', 'Easy restocking']::text[],
    array['قياس في الموقع', 'طباعة شعار المدرسة', 'إعادة تزويد سهلة']::text[],
-   'From SAR 45 / student', 'ابتداءً من ٤٥ ر.س / طالب', true, 1),
+   'Request a quote', 'اطلب عرض سعر', true, 1),
 
   ((select id from public.service_categories where slug = 'school-services'),
    'teacher-gifts', 'Teacher Appreciation Gifts', 'هدايا تكريم المعلّمين',
@@ -84,7 +84,7 @@ values
    'بمقاسات لكل خرّيج، بألوان مدرستك، مع أوشحة وشراشيب اختيارية — للإيجار أو التملّك.',
    array['Every size', 'School colours', 'Sashes and tassels']::text[],
    array['كل المقاسات', 'ألوان المدرسة', 'أوشحة وشراشيب']::text[],
-   'From SAR 30 / gown', 'ابتداءً من ٣٠ ر.س / ثوب', true, 1),
+   'Request a quote', 'اطلب عرض سعر', true, 1),
 
   ((select id from public.service_categories where slug = 'graduation'),
    'ceremony-package', 'Ceremony Package', 'باقة الحفل',

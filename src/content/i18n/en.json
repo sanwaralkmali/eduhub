@@ -76,9 +76,12 @@
       "schoolServices": "School Services",
       "graduation": "Graduation",
       "why": "Why Eduhub",
-      "contact": "Contact us"
+      "contact": "Contact us",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
     },
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "legalNavLabel": "Legal"
   },
   "contact": {
     "title": "Get in touch",
@@ -309,6 +312,45 @@
       "new": "New",
       "contacted": "Contacted",
       "closed": "Closed"
+    }
+  },
+  "legal": {
+    "effective": "Effective date: 12 June 2026",
+    "privacy": {
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "How Eduhub collects, uses, and protects your personal data under Türkiye's KVKK and the GDPR.",
+      "title": "Privacy Policy",
+      "intro": "This Privacy Policy explains how Eduhub (\"we\", \"us\", \"our\") collects, uses, and protects personal data when you visit our website or contact us. We are based in Istanbul, Türkiye, and we handle personal data in line with Türkiye's Personal Data Protection Law (KVKK, Law No. 6698) and, where it applies, the EU General Data Protection Regulation (GDPR).",
+      "sections": [
+        { "heading": "Who we are", "body": ["Eduhub provides activities, school services, and graduation services to schools, and is the data controller for the personal data described in this policy.", "For any question about your data, or for our full legal entity details, contact us at eduhub.contact26@gmail.com."] },
+        { "heading": "Information we collect", "body": ["When you submit our contact form we collect the details you provide: your name, your school's name (optional), your email address, your phone number (optional), and the message you send us.", "We also store one functional cookie that remembers your chosen language (Arabic or English). We do not use advertising or behavioural tracking cookies."] },
+        { "heading": "Why we use your information", "body": ["We use your details only to respond to your enquiry, prepare a plan and a quote, and stay in touch about the service you asked about.", "Our legal basis is your consent in sending us an enquiry, together with our legitimate interest in responding to schools that contact us. We never sell your data or use it for unrelated marketing."] },
+        { "heading": "How your information is stored", "body": ["Your enquiry is stored securely in our database, which is hosted by Supabase acting as our data processor. Access is limited to authorised Eduhub team members.", "We apply reasonable technical and organisational measures to protect personal data against loss, misuse, or unauthorised access."] },
+        { "heading": "How long we keep it", "body": ["We keep enquiry data only as long as we need it to respond to you and to keep reasonable business records, after which we delete or anonymise it."] },
+        { "heading": "Sharing your information", "body": ["We do not share your personal data with third parties, except service providers who help us operate the website (such as our hosting and database provider) and where we are required to do so by law."] },
+        { "heading": "Your rights", "body": ["Under the KVKK (Article 11) and the GDPR you have the right to access your personal data, to have it corrected or deleted, to restrict or object to its processing, and to withdraw your consent at any time.", "To exercise any of these rights, email us at eduhub.contact26@gmail.com and we will respond within the time the law allows."] },
+        { "heading": "Cookies", "body": ["We use a single functional cookie to remember your language preference. It does not track you across other websites. If we add analytics in the future, we will update this policy first."] },
+        { "heading": "Children's privacy", "body": ["Our website is aimed at schools and their staff, not at children. We do not knowingly collect personal data directly from children."] },
+        { "heading": "Changes to this policy", "body": ["We may update this policy from time to time. The effective date at the top of this page shows when it was last revised."] },
+        { "heading": "Contact us", "body": ["For any privacy question or request, email eduhub.contact26@gmail.com or call +90 552 471 86 00."] }
+      ]
+    },
+    "terms": {
+      "metaTitle": "Terms of Use",
+      "metaDescription": "The terms that apply when you use the Eduhub website and contact us about our school services.",
+      "title": "Terms of Use",
+      "intro": "These Terms of Use govern your use of the Eduhub website. By using this site you agree to these terms. If you do not agree, please do not use the site.",
+      "sections": [
+        { "heading": "About Eduhub and this website", "body": ["Eduhub is based in Istanbul, Türkiye, and provides activities, school services, and graduation services to schools. This website presents our services and lets schools send us an enquiry.", "Catalogue listings describe what we offer and are for general information. Any prices shown are indicative; the exact scope and price of a service are confirmed in a written quote."] },
+        { "heading": "Enquiries and quotes", "body": ["Sending us an enquiry through the contact form is a request for information, not an order, and does not create a binding contract.", "A binding agreement is formed only when we and your school both confirm a written quote for a specific service."] },
+        { "heading": "Using the site", "body": ["You agree to use this website lawfully and not to misuse it, disrupt it, or attempt to gain unauthorised access to any part of it or its underlying systems."] },
+        { "heading": "Intellectual property", "body": ["The content, design, branding, and the Eduhub name and logo on this site are owned by or licensed to Eduhub. You may not copy, reproduce, or reuse them without our written permission."] },
+        { "heading": "Accuracy of information", "body": ["We work to keep the information on this site accurate and up to date, but we do not warrant that it is complete or error-free, and our services and listings may change without notice."] },
+        { "heading": "Limitation of liability", "body": ["To the fullest extent permitted by law, Eduhub is not liable for any indirect or incidental loss arising from your use of, or inability to use, this website."] },
+        { "heading": "Governing law", "body": ["These terms are governed by the laws of the Republic of Türkiye, and any dispute relating to them or to this website is subject to the courts of Istanbul."] },
+        { "heading": "Changes to these terms", "body": ["We may update these terms from time to time. Continued use of the site after a change means you accept the updated terms."] },
+        { "heading": "Contact us", "body": ["For any question about these terms, email eduhub.contact26@gmail.com or call +90 552 471 86 00."] }
+      ]
     }
   },
   "meta": {

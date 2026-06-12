@@ -15,7 +15,11 @@ export async function generateMetadata({
   if (!result) return {};
   const locale = (await getLocale()) as Locale;
   const item = localizeItem(result.item, locale);
-  return { title: item.name, description: item.summary || undefined };
+  return {
+    title: item.name,
+    description: item.summary || undefined,
+    alternates: { canonical: `/services/${params.category}/${params.slug}` },
+  };
 }
 
 export default async function ItemPage({

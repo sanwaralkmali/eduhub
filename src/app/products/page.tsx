@@ -7,7 +7,11 @@ import { ProductsView } from "./ProductsView";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("products");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: { canonical: "/products" },
+  };
 }
 
 export default async function ProductsPage() {

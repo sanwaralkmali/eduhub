@@ -7,7 +7,11 @@ import { ServicesView } from "./ServicesView";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("catalogue");
-  return { title: t("indexTitle"), description: t("indexSubtitle") };
+  return {
+    title: t("indexTitle"),
+    description: t("indexSubtitle"),
+    alternates: { canonical: "/services" },
+  };
 }
 
 export default async function ServicesPage() {
