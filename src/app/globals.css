@@ -35,6 +35,9 @@
     --ring: 214 69% 33%;
 
     --radius: 0.75rem;
+
+    /* Latin → Cairo, Arabic → Amiri. The Arabic locale overrides this (below). */
+    --font-app: var(--font-cairo), var(--font-amiri);
   }
 
   .dark {
@@ -78,6 +81,10 @@
     text-size-adjust: 100%;
     color-scheme: light;
     scroll-behavior: smooth;
+  }
+  html[lang="ar"] {
+    /* Arabic locale → Amiri (Naskh) first; Cairo covers any Latin glyphs Amiri lacks. */
+    --font-app: var(--font-amiri), var(--font-cairo);
   }
   body {
     @apply bg-background text-foreground;

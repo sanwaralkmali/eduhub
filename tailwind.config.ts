@@ -67,11 +67,13 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        // "The Scholar": Spectral serif display + Hanken Grotesk body; IBM Plex Sans
-        // Arabic for Arabic. Wired via next/font CSS vars.
-        display: ["var(--font-display)", "var(--font-arabic)", "Georgia", "serif"],
-        body: ["var(--font-body)", "var(--font-arabic)", "system-ui", "sans-serif"],
-        arabic: ["var(--font-arabic)", "system-ui", "sans-serif"],
+        // Resolves to --font-app (globals.css): Cairo for Latin, Amiri for Arabic.
+        // The Arabic locale (html[lang="ar"]) overrides --font-app to Amiri-first.
+        display: ["var(--font-app)", "system-ui", "sans-serif"],
+        body: ["var(--font-app)", "system-ui", "sans-serif"],
+        arabic: ["var(--font-app)", "system-ui", "sans-serif"],
+        // The Eduhub wordmark / brand name — always Cairo, even in the Arabic locale.
+        brand: ["var(--font-cairo)", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

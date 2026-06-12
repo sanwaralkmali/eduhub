@@ -83,7 +83,7 @@ export async function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-xs text-brand-paper/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>
-            © {year} {tc("brand")}. {t("rights")}
+            © {year} <span className="font-brand">{tc("brand")}</span>. {t("rights")}
           </p>
           <nav aria-label={t("legalNavLabel")} className="flex gap-4">
             <Link href="/privacy" className="transition-colors hover:text-accent">

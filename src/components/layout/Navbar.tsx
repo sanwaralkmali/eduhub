@@ -31,7 +31,7 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-display text-xl font-semibold text-brand-navy"
+          className="flex items-center gap-2.5 font-brand text-xl font-semibold text-brand-navy"
         >
           <Image
             src="/eduhub-scholar-mark-color.png"

@@ -52,11 +52,11 @@ values
 
   ((select id from public.service_categories where slug = 'school-services'),
    'uniform-program', 'School Uniform Program', 'برنامج الزي المدرسي',
-   'Quality uniforms, sized, branded, and delivered to your school.', 'أزياء عالية الجودة، بمقاسات وعلامة مدرستك، تُوصَّل إليك.',
-   'From measuring to delivery: durable uniforms with your school crest, in every size, restocked when you need.',
-   'من القياس إلى التوصيل: أزياء متينة بشعار مدرستك، بكل المقاسات، مع إعادة التزويد عند الحاجة.',
-   array['On-site sizing', 'School crest branding', 'Easy restocking']::text[],
-   array['قياس في الموقع', 'طباعة شعار المدرسة', 'إعادة تزويد سهلة']::text[],
+   'Quality branded uniforms in a full range of standard sizes, delivered to your school.', 'أزياء مدرسية عالية الجودة بشعار مدرستك، بمجموعة كاملة من المقاسات القياسية، تُوصَّل إليك.',
+   'Durable uniforms with your school crest, supplied in a full range of standard sizes and delivered ready to wear — with easy restocking whenever you need more.',
+   'أزياء متينة تحمل شعار مدرستك، تُوفَّر بمجموعة كاملة من المقاسات القياسية وتُسلَّم جاهزة للارتداء — مع إعادة تزويد سهلة عند الحاجة.',
+   array['Range of standard sizes', 'School crest branding', 'Easy restocking']::text[],
+   array['مقاسات قياسية متنوّعة', 'طباعة شعار المدرسة', 'إعادة تزويد سهلة']::text[],
    'Request a quote', 'اطلب عرض سعر', true, 1),
 
   ((select id from public.service_categories where slug = 'school-services'),

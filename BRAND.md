@@ -24,10 +24,10 @@ Clear, confident, reassuring. Short declarative sentences. Lead with outcomes fo
 **Ratio:** ~70% navy + neutrals (Paper/white), ~25% blues, ~5% brass. Use semantic classes (`bg-primary`, `text-muted-foreground`, `bg-secondary`) so themes stay correct — don't hardcode hex in components.
 
 ## Type
-- **Display / headings:** **Spectral** (serif) → `font-display`, weights 400–700, slight negative tracking on large sizes. H1–H3, hero, section titles, the "Eduhub" wordmark.
-- **Body / UI:** **Hanken Grotesk** (sans) → `font-body`, weights 400/600/800. Body, nav, buttons, labels.
-- **Arabic:** **IBM Plex Sans Arabic** → `font-arabic`, applied automatically in RTL.
-- Loaded via `next/font` in `src/app/layout.tsx`; body text ≥16px, never below 14px.
+- **Latin — Cairo**, **Arabic — Amiri** (classical Naskh serif). Per-script: Cairo is loaded latin-only and Amiri arabic-only, so each script renders in its own font automatically via glyph fallback (no locale CSS). All roles — `font-display` / `font-body` / `font-arabic` — resolve to the same `[Cairo, Amiri]` stack. Weights: Cairo 400/500/600/700, Amiri 400/700.
+- Loaded via `next/font` in `src/app/layout.tsx` (CSS vars `--font-cairo`, `--font-amiri`); body text ≥16px, never below 14px.
+- **Brand name** — the "Eduhub" wordmark text (navbar logo, footer credit) always renders in Cairo via the `font-brand` family, even in the Arabic locale.
+- *(2026-06-12: Spectral + Hanken Grotesk + IBM Plex Sans Arabic → Cairo (Latin) + Amiri (Arabic). The PNG logo wordmark is unaffected — it's an image.)*
 
 ## Logo (the Scholar crest)
 - A graduation-cap crest inside a thin double-ring seal (navy ring + brass inner ring) with a brass tassel, paired with a serif "Eduhub" wordmark. Files in `public/eduhub-scholar-*.png`.

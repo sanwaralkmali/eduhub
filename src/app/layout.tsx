@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Spectral, Hanken_Grotesk, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Cairo, Amiri } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { isRtl, type Locale } from "@/lib/i18n/config";
@@ -16,19 +16,19 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// "The Scholar" type system (BRAND.md): Spectral (serif display) + Hanken Grotesk
-// (sans body) for Latin, IBM Plex Sans Arabic for Arabic. Exposed as CSS variables.
-const spectral = Spectral({
+// Bilingual type: Cairo for Latin, Amiri (classical Naskh) for Arabic. Each font is
+// loaded for its own script only, so glyph fallback renders each script in its own
+// face — Arabic → Amiri, Latin → Cairo — regardless of page locale.
+const cairo = Cairo({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
+  variable: "--font-cairo",
   display: "swap",
 });
-const hanken = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-body", display: "swap" });
-const plexArabic = IBM_Plex_Sans_Arabic({
+const amiri = Amiri({
   subsets: ["arabic"],
-  weight: ["400", "500", "600"],
-  variable: "--font-arabic",
+  weight: ["400", "700"],
+  variable: "--font-amiri",
   display: "swap",
 });
 
@@ -70,7 +70,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={locale}
       dir={dir}
-      className={`${spectral.variable} ${hanken.variable} ${plexArabic.variable}`}
+      className={`${cairo.variable} ${amiri.variable}`}
     >
       <body className="min-h-screen bg-background font-body text-foreground antialiased">
         <NextIntlClientProvider messages={messages}>
